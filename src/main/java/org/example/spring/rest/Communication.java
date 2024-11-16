@@ -33,7 +33,7 @@ public class Communication {
         if (cookies != null && !cookies.isEmpty()) {
             this.sessionId = cookies.get(0).split(";")[0];
         } else {
-            throw new RuntimeException("Session ID not found"); // Обработка отсутствия session ID
+            throw new RuntimeException("Session ID not found");
         }
         return sessionId;
     }
@@ -60,7 +60,7 @@ public class Communication {
     }
     public String deleteUser(Long id){
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Cookie", sessionId); // Добавляем session ID в заголовки
+        headers.add("Cookie", sessionId);
         HttpEntity<Void> requestEntity = new HttpEntity<Void>(null, headers);
 
         String deleteUrl = URL + "/" + id;
